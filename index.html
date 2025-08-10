@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goose</title>
+    <style>
+        body { text-align: center; background: #222; color: #fff; }
+        iframe { border: none; width: 640px; height: 576px; display: none; }
+        #error { color: red; display: none; }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const correctPassword = "anser anser"; // Change this!
+            //DONT CHEAT
+            let userPassword = prompt("question question"); //DONT CHEAT
+            //DONT CHEAT
+
+            if (userPassword === correctPassword) {
+                document.getElementById("game").style.display = "block";
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Goose</h1>
+    <p id="error">Incorrect password. Access denied.</p>
+    <iframe id="game" src="web/?rom=roms/game.gb&system=gb"></iframe>
+</body>
+</html>
