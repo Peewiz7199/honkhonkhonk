@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Goose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile scaling -->
     <style>
-        body { text-align: center; background: #222; color: #fff; }
-        iframe { border: none; width: 640px; height: 576px; display: none; }
-        #error { color: red; display: none; }
+        body { 
+            text-align: center; 
+            background: #222; 
+            color: #fff; 
+            margin: 0; 
+            font-family: sans-serif; 
+        }
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin: 1rem 0;
+        }
+        iframe { 
+            border: none; 
+            width: 100%; 
+            max-width: 640px; 
+            aspect-ratio: 640 / 576; /* keep gameboy aspect ratio */
+            height: auto; 
+            display: none; 
+        }
+        #error { 
+            color: red; 
+            display: none; 
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const correctPassword = "anser anser"; // Change this!
-            //DONT CHEAT
+            const correctPassword = "anser anser"; //This is cheating
             let userPassword = prompt("question question"); //DONT CHEAT
-            //DONT CHEAT
 
             if (userPassword === correctPassword) {
                 document.getElementById("game").style.display = "block";
@@ -26,6 +52,8 @@
 <body>
     <h1>Goose</h1>
     <p id="error">Incorrect password. Access denied.</p>
-    <iframe id="game" src="web/?rom=roms/game.gb&system=gb"></iframe>
+    <div class="wrapper">
+        <iframe id="game" src="web/?rom=roms/game.gb&system=gb"></iframe>
+    </div>
 </body>
 </html>
